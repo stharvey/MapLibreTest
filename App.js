@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 100,
     left: 10,
     right: 10,
     zIndex: 10,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   counterWrapper: {
     position: 'absolute',
-    bottom: 120,
+    bottom: 160,
     right: 10,
     backgroundColor: 'rgba(0,0,0,0.6)',
     paddingVertical: 4,
