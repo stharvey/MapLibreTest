@@ -3,10 +3,14 @@ import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import * as MapLibreRN from '@maplibre/maplibre-react-native';
 
 export default function MapRemountExample() {
+  // mapKey drives the actual remount
   const [mapKey, setMapKey] = useState(0);
+  // mountCount tracks how many times we've mounted
+  const [mountCount, setMountCount] = useState(1);
 
   const remountMap = () => {
     setMapKey(k => k + 1);
+    setMountCount(c => c + 1);
   };
 
   return (
@@ -15,6 +19,10 @@ export default function MapRemountExample() {
         <TouchableOpacity onPress={remountMap} style={styles.button}>
           <Text style={styles.buttonText}>Reload map</Text>
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.counterWrapper}>
+        <Text style={styles.counterText}>Mount: {mountCount}</Text>
       </View>
 
       <MapLibreRN.MapView
@@ -54,6 +62,20 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  counterWrapper: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 6,
+    zIndex: 10,
+  },
+  counterText: {
+    color: '#fff',
+    fontSize: 14,
   },
   map: {
     ...StyleSheet.absoluteFillObject,
