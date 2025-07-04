@@ -15,12 +15,6 @@ export default function MapRemountExample() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonWrapper}>
-        <TouchableOpacity onPress={remountMap} style={styles.button}>
-          <Text style={styles.buttonText}>Reload map</Text>
-        </TouchableOpacity>
-      </View>
-
       <View style={styles.counterWrapper}>
         <Text style={styles.counterText}>Mount: {mountCount}</Text>
       </View>
@@ -32,6 +26,11 @@ export default function MapRemountExample() {
       >
         <MapLibreRN.Camera zoomLevel={4} centerCoordinate={[-2.0, 49]} />
       </MapLibreRN.MapView>
+      <View style={styles.buttonWrapper}>
+        <TouchableOpacity onPress={remountMap} style={styles.button}>
+          <Text style={styles.buttonText}>Reload map</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -44,8 +43,9 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     position: 'absolute',
-    top: 10,
+    bottom: 50,
     left: 10,
+    right: 10,
     zIndex: 10,
   },
   button: {
@@ -60,12 +60,13 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '600',
+    textAlign: 'center',
   },
   counterWrapper: {
     position: 'absolute',
-    top: 10,
+    bottom: 120,
     right: 10,
     backgroundColor: 'rgba(0,0,0,0.6)',
     paddingVertical: 4,
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
   counterText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 20,
   },
   map: {
     ...StyleSheet.absoluteFillObject,
